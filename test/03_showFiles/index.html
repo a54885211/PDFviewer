@@ -60,7 +60,7 @@
 
            
                 //add data
-                async function addData(Title,FileName) {
+                async function addData(category,filename,outline,url,src,Date) {
                 
                     const payload = {
                         Action: "Add",
@@ -69,10 +69,12 @@
                         },
                         Rows:[
                             {
-                               Title: Title,
-                               Date: "2024/09/14",
-                               FileName: FileName,
-                               File: ""
+                               category: category,
+                               filename: filename,
+                               outline: outline,
+                               url: url,
+                               src: src,
+                               Date: Date
                             },
                         ]
                     };
@@ -209,9 +211,13 @@
 
         //「登録」ボタンが押されたとき
         function onButtonClick() {
-            const Title = document.getElementById("Title").value;
-            const FileName = document.getElementById("FileName").value;
-            addData(Title,FileName)
+            const category = document.getElementById("category").value;
+            const filename = document.getElementById("filename").value;
+            const outline = document.getElementById("outline").value;
+            const url = document.getElementById("url").value;
+            const src = document.getElementById("src").value;
+            const Date = document.getElementById("Date").value;
+            addData(category,filename,outline,url,src,Date)
             closePopup()
         }
 
@@ -286,11 +292,23 @@
             <!-- ポップアップの内容 -->
             <div class="popup-content" id="popup">
                 <p>
-                    <p>title:<br>
-                        <input type="text" id="Title">
+                    <p>category:<br>
+                        <input type="text" id="category">
                     </p>
-                    <p>FileName:<br>
-                        <input type="text" id="FileName">
+                    <p>filename:<br>
+                        <input type="text" id="filename">
+                    </p>
+                    <p>outline:<br>
+                        <input type="text" id="outline">
+                    </p>
+                    <p>url:<br>
+                        <input type="text" id="url">
+                    </p>
+                    <p>src:<br>
+                        <input type="text" id="src">
+                    </p>
+                    <p>Date:<br>
+                        <input type="text" id="Date">
                     </p>
                 </p>
                 <button class="popup-close" onclick="onButtonClick()">登録</button>
