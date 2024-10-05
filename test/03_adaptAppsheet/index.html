@@ -8,6 +8,7 @@
                 const TABLE_NAME = "Table 1"
                 const url = `https://www.appsheet.com/api/v2/apps/${APP_ID}/tables/${TABLE_NAME}/Action?applicationAccessKey=${ACCESS_KEY}`;
                 
+
                 
                 
                 //get data
@@ -69,22 +70,22 @@
                         },
                         Rows:[
                             {
-                               category: category,
-                               filename: filename,
-                               outline: outline,
-                               url: url,
-                               src: src,
-                               Date: Date
+                               category: "sksksksksksk",
+                            //    filename: filename,
+                            //    outline: outline,
+                            //    url: url,
+                            //    src: src,
+                            //    Date: Date
                             },
                         ]
                     };
-                        
+
                     const options = {
-                        method: 'POST',
+                        method:'POST',
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify(payload)
                     };
-
+                    console.log(options);
                     try {
                         const response = await fetch(url, options);
                         console.log(response);
@@ -100,14 +101,16 @@
                 
                 }
 
-                const doFunctionAdd = () => {
+                const doFunctionAdd = (category,filename,outline,url,src,Date) => {
                 
-                    addData()
+                    addData(category,filename,outline,url,src,Date)
+                
                         .then(res => {
-                            const dataDisplayElem = document.getElementById("data-display");
-                            dataDisplayElem.innerText = res;
+                            console.log(res);
+                            const dataDisplayElem = document.getElementById("data-display");                            dataDisplayElem.innerText = res;
                         })
                         .catch(err => {
+                            console.log(err);
                             const dataDisplayElem = document.getElementById("data-display");
                             dataDisplayElem.innerText = err;
                         });
