@@ -121,7 +121,16 @@ export default function Home() {
             // filteredData.map((x,i) => {
             //allData.length
             allData.map((x,i) => {
-
+                let Icon;
+                if(x.fileformat==='PDF'){
+                    Icon = 'PDFicon.png';
+                }else if(x.fileformat==='PPTX'){
+                    Icon = 'PPTXicon.png';
+                }else if(x.fileformat==='DOCX'){
+                    Icon = 'DOCXicon.png';
+                }else{
+                    Icon = 'OTHERSicon.png';
+                }
                 return <a
                         key={i}
                         className="group rounded-lg border border-transparent px-5 py-4 transition-colors 
@@ -138,15 +147,16 @@ export default function Home() {
                             />
                             {/* PDFアイコンの位置を絶対位置で右下に設定 */}
                             <img
-                                src="PDFicon.png"  // PDFアイコンの画像パス
+                                src= {Icon}  // PDFアイコンの画像パス
                                 style={{
                                     position: "absolute",
                                     bottom: "5px",  // 画像の中に収まるように調整
                                     left: "calc(50% + 80px)",  // 親の中央から右に100px移動
-                                    transform: "translateX(-50%)",  // 中央にずらす                                    width: "30px",  // アイコンサイズを調整
+                                    transform: "translateX(-50%)",  // 中央にずらす                                    
+                                    width: "30px",  // アイコンサイズを調整
                                     height: "30px"
                                 }}
-                                alt="PDF Icon"
+                                alt="Icon"
                             />
                             </div>
                             <h2 className={`mb-3 text-2xl font-semibold`}>
